@@ -1,0 +1,74 @@
+*******Create image by yourself Using Python Code********
+# creating our  own image
+import cv2
+import numpy
+c = numpy.zeros((600,600,3))
+for i in range (0,300):
+    c[i][i]=[67,25,0]
+    c[i+10][i+10]=[67,56,250]
+for i in range (250,350):
+    c[i]=[1,0,0]
+    
+for i in range (25,599):
+    c[i][78]=[78,98,0]
+    c[i][45]=[7,98,0]
+    
+for i in range (360,400):
+    c[i]=[0,0,255]
+for i in range (400,550):
+    c[i]=[0,255,255]
+for i in range (25,599):
+    c[i][530]=[78,98,0]
+    c[i][555]=[88,98,0] 
+    
+for i in range (250,599):
+    for j in range (250,599):
+        c[i][j]=[78,98,0]
+    
+cv2.imshow('hi',c)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
+*****Take 2 image crop some part of both image and swap it*****
+#swapping two crop image
+import cv2
+image1 = cv2.imread('my1.jpg')
+image2 = cv2.imread('my3.jpg')
+image3 = cv2.imread('my1.jpg')
+cv2 .imshow ('hi',image1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+cv2 .imshow ('hi',image2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+image1[90: 300,90:300]= image2[90: 300,90:300]
+cv2 .imshow ('hi',image1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+image2[90: 300,90:300]= image3[90: 300,90:300]
+cv2 .imshow ('hi',image2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
+
+
+*******Take 2 image and combine it to form single image. For example collage *******
+# adding two image horizontally
+import cv2
+import numpy as np
+image1 = cv2.imread('my1.jpg')
+image2 = cv2.imread('my3.jpg')
+cv2.imshow('hi',image1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+cv2.imshow('hi',image2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+image3 = np.hstack ((image1,image2))
+cv2.imshow('hi',image3)
+cv2.waitKey()
+cv2.destroyAllWindows()
